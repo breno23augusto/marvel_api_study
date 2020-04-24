@@ -1,3 +1,4 @@
+import 'package:api_study/screens/home/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,12 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Consuming Marvel API',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Text('new app'),
+      home: Home(),
     );
   }
 }
