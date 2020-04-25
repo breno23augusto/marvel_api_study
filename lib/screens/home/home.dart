@@ -1,3 +1,5 @@
+import 'package:api_study/screens/home/widget/CustomSearchDelegate.dart';
+import 'package:api_study/screens/home/widget/PageViewApp.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -5,35 +7,27 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: <Widget>[
-            Text('Personagens'),
-          ],
-        ),
-      ),
-      body: Container(
-        margin: EdgeInsets.all(16),
-        child: Expanded(
-          child: ListView(
-            children: <Widget>[
-              ListTile(
-                title: Container(
-                  margin: EdgeInsets.all(16),
-                  child: Column(
-                    children: <Widget>[
-                      Image.network(
-                        'https://picsum.photos/250?image=9',
-                      ),
-                      Text('The Enchanted Nightingale'),
-                    ],
-                  ),
-                ),
-                subtitle:
-                Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-              ),
-            ],
+        title: const Text('Heros'),
+        backgroundColor: Colors.red[900],
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
+            },
           ),
-        ),
+        ],
+      ),
+      backgroundColor: Colors.red[800],
+      extendBody: true,
+      body: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          PageViewApp(),
+        ],
       ),
     );
   }
